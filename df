@@ -1,0 +1,217 @@
+ html
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milestone Portfolio</title>
+      <!-- Google Fonts Pairing -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Linked CSS File -->
+    <link rel="stylesheet" href="style.css">
+ </head>
+ <body>
+
+    <header id="main-header">
+        <div class="header-container">
+            <a href="#" class="logo">Milestone Project</a>
+            <nav class="nav-links">
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Works</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="content-area">
+        <!-- Multi-Column Grid Section -->
+        <section class="grid-section">
+            <div class="card">
+                <h3>01. Narrative Analysis</h3>
+                <p>Analyzing the emotional grit and structural genius behind Sherman Alexie's literacy memoir.</p>
+            </div>
+            <div class="card">
+                <h3>02. Rhetorical Devices</h3>
+                <p>Exploring extended metaphor, anaphora, and cultural juxtaposition in composition.</p>
+            </div>
+            <div class="card">
+                <h3>03. Responsive Layout</h3>
+                <p>Building semantic, cross-device interfaces utilizing strict 8px element vertical rhythm rules.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer id="main-footer">
+        <p>&copy; 2026 Milestone Project Portfolio. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
+CSS
+/* ==========================================================================
+   1. VARIABLES & SYSTEM SETUP (8px Spacing System & Theme Colors)
+   ========================================================================== */
+:root {
+    /* Color Palette */
+    --color-primary: #1e293b;     /* Deep Slate */
+    --color-accent: #2563eb;      /* Tech Blue */
+    --color-bg: #f8fafc;          /* Light Off-White */
+    --color-card-bg: #ffffff;     /* Pure White */
+    --color-text-main: #334155;   /* Charcoal */
+    --color-text-dark: #0f172a;   /* Near Black */
+    --color-border: #e2e8f0;      /* Muted Slate */
+
+    /* Typography */
+    --font-heading: 'Merriweather', Georgia, serif;
+    --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+
+    /* 8px Scale Grid System Variables */
+    --space-xs: 8px;
+    --space-sm: 16px;
+    --space-md: 24px;
+    --space-lg: 32px;
+    --space-xl: 64px;
+}
+
+/* Base Document Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text-main);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    padding: 0;
+}
+
+/* ==========================================================================
+   2. TYPE SELECTORS (Global Rules)
+   ========================================================================== */
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    color: var(--color-text-dark);
+    margin-bottom: var(--space-sm); /* 16px rhythm */
+    font-weight: 700;
+}
+
+p {
+    margin-bottom: var(--space-sm); /* 16px rhythm */
+}
+
+a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--color-primary);
+}
+
+/* ==========================================================================
+   3. ID SELECTORS (Unique Layout Blocks)
+   ========================================================================== */
+#main-header {
+    background-color: var(--color-card-bg);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+#content-area {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--space-lg) var(--space-sm); /* 32px top/bottom, 16px sides */
+}
+
+#main-footer {
+    background-color: var(--color-primary);
+    color: #ffffff;
+    text-align: center;
+    padding: var(--space-md); /* 24px padding */
+    margin-top: var(--space-xl); /* 64px separation spacing */
+}
+
+/* ==========================================================================
+   4. CLASS SELECTORS (Components & Modular Units)
+   ========================================================================== */
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--space-sm); /* 16px layout framing */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+}
+
+.nav-links a {
+    margin-left: var(--space-sm); /* 16px link items separation */
+    font-weight: 500;
+    color: var(--color-text-main);
+}
+
+/* Multi-Column Grid Component Container */
+.grid-section {
+    display: grid;
+    grid-template-columns: 1fr; /* Default Mobile Layout Stack */
+    gap: var(--space-md);       /* 24px structural item isolation spacing */
+    margin-top: var(--space-md);
+}
+
+.card {
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--space-xs); /* 8px rounded accents */
+    padding: var(--space-md);       /* 24px balanced padding grid */
+}
+
+/* ==========================================================================
+   5. RESPONSIVENESS & MEDIA QUERIES (Adaptive Grid Engine)
+   ========================================================================== */
+
+/* 📱 Mobile Specific Checks (Accommodating minimum target down to 320px) */
+@media (max-width: 480px) {
+    .header-container {
+        flex-direction: column;
+        gap: var(--space-xs); /* 8px link stack offset adjustments */
+    }
+    .nav-links a {
+        margin: 0 var(--space-xs); /* 8px uniform balance spacing */
+    }
+}
+
+/* ➔ Tablet Refinements Breakpoint (Triggers at 768px wide viewports) */
+@media (min-width: 768px) {
+    #content-area {
+        padding: var(--space-xl) var(--space-md); /* 64px padding for breathing room */
+    }
+
+    .grid-section {
+        grid-template-columns: repeat(2, 1fr); /* Upgrades to 2 columns on tablets */
+    }
+}
+
+/* ➔ Desktop Expansion Breakpoint (Triggers at 1200px wide viewports) */
+@media (min-width: 1200px) {
+    .grid-section {
+        grid-template-columns: repeat(3, 1fr); /* Expands out clean to 3 full columns */
+    }
+    
+    .card {
+        padding: var(--space-lg); /* 32px luxurious inner padding alignment */
+    }
+}
